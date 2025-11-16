@@ -37,6 +37,21 @@ Version 1.2 - November 14, 2025
      • Responsive color scheme grid in settings
      • Visual preview of each color scheme
 
+🐛 BUG FIXES:
+
+  ✅ Settings Edit/Delete Buttons Fixed
+     - Edit and Delete buttons in settings now work properly
+     - Changed from inline onclick to event delegation
+     - More reliable and follows modern JavaScript best practices
+
+✨ UI ENHANCEMENTS:
+
+  ✅ Added Creator Credit
+     - "by Lee Clontz" link in drawer footer
+     - "Made with ❤️ by Lee Clontz" in settings page footer
+     - Links to https://clontz.blog
+     - Subtle, tasteful styling that doesn't interfere with UX
+
 ═══════════════════════════════════════════════════════════════════════════════
 
 Version 1.1 - November 14, 2025

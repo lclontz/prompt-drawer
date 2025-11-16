@@ -57,7 +57,7 @@ async function createDrawer() {
     
     <div class="prompt-drawer-footer">
       <button class="settings-btn" id="open-settings">⚙️ Settings</button>
-      <a href="https://clontz.blog" target="_blank" class="credit-link" title="Visit Lee Clontz's blog">by Lee Clontz</a> or the project <a href="https://github.com/lclontz/prompt-drawer">GitHub repo</a>.
+      <a href="https://clontz.blog" target="_blank" class="credit-link" title="Visit Lee Clontz's blog">by Lee Clontz</a> or the project <a href="https://github.com/lclontz/prompt-drawer">GitHub repo</a>
     </div>
   `;
 
