@@ -97,11 +97,26 @@
   padding: 12px 16px;
   background: rgba(255, 255, 255, 0.08);
   overflow-x: auto;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
 }
 
 .prompt-drawer-filters::-webkit-scrollbar {
-  display: none;
+  height: 6px;
+}
+
+.prompt-drawer-filters::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.prompt-drawer-filters::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.prompt-drawer-filters::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .filter-btn {
