@@ -1,6 +1,6 @@
-# Prompt Drawer 📝
+# Prompt Drawer
 
-A Chrome extension that provides quick access to your favorite prompt snippets and templates while working with AI assistants.
+A Chrome or Edge extension that provides quick access to your favorite prompt snippets and templates while working with AI assistants.
 
 ## Features
 
@@ -18,12 +18,13 @@ A Chrome extension that provides quick access to your favorite prompt snippets a
 
 ### From Source (Developer Mode)
 
-1. **Clone or download** this repository
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable **Developer mode** (toggle in top-right corner)
+1. Download the [zip file](https://github.com/lclontz/prompt-drawer/blob/main/prompt-drawer-extension.zip) and unpack it
+2. Open Chrome or Edge and navigate to `chrome://extensions/`
+3. Ensure that the **Developer mode** toggle is enabled
 4. Click **Load unpacked**
-5. Select the `prompt-drawer` folder
-6. The extension icon should appear in your toolbar!
+5. Select the `prompt-drawer-extension` folder you unpacked in step 1
+6. Select the extensions link on your toolbar and pin `Prompt Drawer`
+7. The extension icon should appear in your toolbar!
 
 ## Usage
 
@@ -171,4 +172,4 @@ Found a bug or have a feature request? Feel free to open an issue or submit a pu
 
 ---
 
-Made with ❤️ for AI enthusiasts who type the same prompts over and over
+
