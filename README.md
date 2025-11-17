@@ -4,15 +4,15 @@ A Chrome extension that provides quick access to your favorite prompt snippets a
 
 ## Features
 
-✨ **Floating Panel**: A beautiful, draggable floating drawer that stays on top of your content
-🎯 **Quick Snippets**: One-click access to common prompt patterns like "Act as a [ROLE]" or "No fluff!"
-🏷️ **Smart Categorization**: Filter snippets by Mood, Role, Brevity, Format, or Meta categories
-📊 **Usage Tracking**: Snippets automatically sort by most frequently used
-💾 **Saved Prompts**: Store full-length prompts in a dropdown for easy reuse
-➕ **Context Menu Integration**: Right-click any text to save it as a snippet or prompt
-⚙️ **Full Management**: Comprehensive settings page to manage all your snippets and prompts
-🎨 **Modern Design**: Beautiful gradient UI with smooth animations
-🔄 **Sync Across Devices**: All your prompts sync via Chrome's storage
+- ✨ **Floating Panel**: A beautiful, draggable floating drawer that stays on top of your content
+- 🎯 **Quick Snippets**: One-click access to common prompt patterns like "Act as a [ROLE]" or "No fluff!"
+- 🏷️ **Smart Categorization**: Filter snippets by Mood, Role, Brevity, Format, or Meta categories
+- 📊 **Usage Tracking**: Snippets automatically sort by most frequently used
+- 💾 **Saved Prompts**: Store full-length prompts in a dropdown for easy reuse
+- ➕ **Context Menu Integration**: Right-click any text to save it as a snippet or prompt
+- ⚙️ **Full Management**: Comprehensive settings page to manage all your snippets and prompts
+- 🎨 **Modern Design**: Beautiful gradient UI with smooth animations
+- 🔄 **Sync Across Devices**: All your prompts sync via Chrome's storage
 
 ## Installation
 
