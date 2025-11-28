@@ -9,110 +9,82 @@
 <body>
   <div class="container">
     <header>
-      <h1>⚙️ Prompt Drawer Settings</h1>
-      <p class="subtitle">Manage your snippets and saved prompts</p>
+      <h1>Prompt Drawer Settings</h1>
+      <div class="header-links">
+        <a href="https://clontz.blog" target="_blank">by Lee Clontz</a> | 
+        <a href="https://github.com/lclontz/prompt-drawer" target="_blank">GitHub</a>
+      </div>
     </header>
 
-    <div class="section">
-      <div class="section-header">
-        <h2>🎨 Color Scheme</h2>
-      </div>
-      
-      <p class="section-description">Choose from Subaru Crosstrek colorways</p>
-      
-      <div id="color-schemes" class="color-schemes-grid">
-        <!-- Color schemes will be loaded here -->
-      </div>
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="snippets">Snippets</button>
+      <button class="tab-btn" data-tab="prompts">Saved Prompts</button>
+      <button class="tab-btn" data-tab="backup">Backup/Restore</button>
     </div>
 
-    <div class="section">
-      <div class="section-header">
-        <h2>📝 Snippets</h2>
-        <button id="add-snippet-btn" class="btn btn-primary">+ Add Snippet</button>
-      </div>
-      
-      <div id="snippets-list" class="items-list">
-        <!-- Snippets will be loaded here -->
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-header">
-        <h2>💾 Saved Prompts</h2>
-        <button id="add-prompt-btn" class="btn btn-primary">+ Add Prompt</button>
-      </div>
-      
-      <div id="prompts-list" class="items-list">
-        <!-- Saved prompts will be loaded here -->
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-header">
-        <h2>🔧 Actions</h2>
-      </div>
-      
-      <div class="actions">
-        <button id="export-btn" class="btn btn-secondary">Export Data</button>
-        <button id="import-btn" class="btn btn-secondary">Import Data</button>
-        <input type="file" id="import-file" accept=".json" style="display: none;">
-        <button id="reset-btn" class="btn btn-danger">Reset to Defaults</button>
-      </div>
-    </div>
-  </div>
-
-  <footer class="page-footer">
-    <p>Made with 🙃 by <a href="https://clontz.blog" target="_blank" class="footer-link">Lee Clontz</a> • <a href="https://github.com/lclontz/prompt-drawer" target="_blank" class="footer-link">GitHub</a></p>
-  </footer>
-
-  <!-- Add/Edit Snippet Modal -->
-  <div id="snippet-modal" class="modal">
-    <div class="modal-content">
-      <h3 id="snippet-modal-title">Add Snippet</h3>
-      <form id="snippet-form">
-        <div class="form-group">
-          <label for="snippet-text">Text</label>
-          <input type="text" id="snippet-text" required placeholder="e.g., Act as a [ROLE]">
-        </div>
-        <div class="form-group">
-          <label for="snippet-category">Category</label>
-          <select id="snippet-category" required>
-            <option value="mood">Mood</option>
+    <!-- Snippets Tab -->
+    <div id="snippets-tab" class="tab-content active">
+      <div class="section">
+        <h2>Manage Snippets</h2>
+        <div class="add-snippet-form">
+          <input type="text" id="new-snippet-text" placeholder="Enter snippet text..." />
+          <select id="new-snippet-category">
             <option value="role">Role</option>
+            <option value="mood">Mood</option>
             <option value="brevity">Brevity</option>
             <option value="format">Format</option>
             <option value="meta">Meta</option>
             <option value="custom">Custom</option>
           </select>
+          <button id="add-snippet-btn">Add Snippet</button>
         </div>
-        <div class="form-actions">
-          <button type="button" class="btn btn-secondary" id="cancel-snippet">Cancel</button>
-          <button type="submit" class="btn btn-primary">Save</button>
+        <div id="snippets-list" class="items-list">
+          <!-- Snippets will be loaded here -->
         </div>
-      </form>
+      </div>
     </div>
+
+    <!-- Saved Prompts Tab -->
+    <div id="prompts-tab" class="tab-content">
+      <div class="section">
+        <h2>Manage Saved Prompts</h2>
+        <div class="add-prompt-form">
+          <textarea id="new-prompt-text" placeholder="Enter full prompt text..." rows="3"></textarea>
+          <button id="add-prompt-btn">Add Prompt</button>
+        </div>
+        <div id="prompts-list" class="items-list">
+          <!-- Prompts will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Backup/Restore Tab -->
+    <div id="backup-tab" class="tab-content">
+      <div class="section">
+        <h2>Backup Your Data</h2>
+        <p>Export your snippets and prompts as a JSON file for backup.</p>
+        <button id="export-btn" class="primary-btn">Export Data</button>
+      </div>
+      
+      <div class="section">
+        <h2>Restore Data</h2>
+        <p>Import a previously exported JSON file to restore your snippets and prompts.</p>
+        <input type="file" id="import-file" accept=".json" />
+        <button id="import-btn" class="primary-btn">Import Data</button>
+      </div>
+      
+      <div class="section danger">
+        <h2>Reset to Defaults</h2>
+        <p>⚠️ This will delete all custom snippets and saved prompts, restoring only the default snippets.</p>
+        <button id="reset-btn" class="danger-btn">Reset Everything</button>
+      </div>
+    </div>
+
+    <!-- Status message -->
+    <div id="status-message" class="status-message"></div>
   </div>
 
-  <!-- Add/Edit Prompt Modal -->
-  <div id="prompt-modal" class="modal">
-    <div class="modal-content">
-      <h3 id="prompt-modal-title">Add Prompt</h3>
-      <form id="prompt-form">
-        <div class="form-group">
-          <label for="prompt-text">Prompt Text</label>
-          <textarea id="prompt-text" rows="6" required placeholder="Enter your full prompt here..."></textarea>
-        </div>
-        <div class="form-actions">
-          <button type="button" class="btn btn-secondary" id="cancel-prompt">Cancel</button>
-          <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div id="notification" class="notification"></div>
-
-  <script src="color-schemes.js"></script>
   <script src="options.js"></script>
 </body>
 </html>

@@ -1,106 +1,103 @@
-// Color schemes based on Subaru Crosstrek colorways
-const COLOR_SCHEMES = {
-  'sapphire-blue': {
-    name: 'Sapphire Blue Pearl',
-    primary: '#0C4B8E',
-    secondary: '#154A7C',
-    accent: '#E8F2F9'
+// Subaru Crosstrek-inspired color schemes
+const colorSchemes = {
+  original: {
+    name: 'Original Blue',
+    background: 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)',
+    primary: '#1976d2',
+    secondary: '#42a5f5'
   },
-  'magnetite-gray': {
-    name: 'Magnetite Gray Metallic',
-    primary: '#4A4A4A',
-    secondary: '#2D2D2D',
-    accent: '#E8E8E8'
+  wilderness: {
+    name: 'Wilderness Green',
+    background: 'linear-gradient(135deg, #2d5016 0%, #7cb342 100%)',
+    primary: '#2d5016',
+    secondary: '#7cb342'
   },
-  'crystal-white': {
-    name: 'Crystal White Pearl',
-    primary: '#E8E8E8',
-    secondary: '#CECECE',
-    accent: '#F5F5F5',
-    dark: true // White scheme needs dark text
+  autumn: {
+    name: 'Autumn Blaze',
+    background: 'linear-gradient(135deg, #d84315 0%, #ff8a65 100%)',
+    primary: '#d84315',
+    secondary: '#ff8a65'
   },
-  'ice-silver': {
-    name: 'Ice Silver Metallic',
-    primary: '#A8B5BF',
-    secondary: '#8A96A0',
-    accent: '#E5EDF2'
-  },
-  'crystal-black': {
-    name: 'Crystal Black Silica',
-    primary: '#1A1A1A',
-    secondary: '#0A0A0A',
-    accent: '#333333'
-  },
-  'venetian-red': {
-    name: 'Venetian Red Pearl',
-    primary: '#7D1F1F',
-    secondary: '#5A1414',
-    accent: '#F2E5E5'
-  },
-  'plasma-yellow': {
-    name: 'Plasma Yellow Pearl',
-    primary: '#E6A500',
-    secondary: '#C28900',
-    accent: '#FFF4D6',
-    dark: true // Yellow scheme needs dark text
-  },
-  'desert-khaki': {
+  desert: {
     name: 'Desert Khaki',
-    primary: '#8B7355',
-    secondary: '#6B5840',
-    accent: '#F0EBE5'
+    background: 'linear-gradient(135deg, #8d6e63 0%, #bcaaa4 100%)',
+    primary: '#8d6e63',
+    secondary: '#bcaaa4'
   },
-  'cool-gray': {
+  ocean: {
+    name: 'Ocean Blue',
+    background: 'linear-gradient(135deg, #0277bd 0%, #29b6f6 100%)',
+    primary: '#0277bd',
+    secondary: '#29b6f6'
+  },
+  magnetite: {
+    name: 'Magnetite Gray',
+    background: 'linear-gradient(135deg, #37474f 0%, #78909c 100%)',
+    primary: '#37474f',
+    secondary: '#78909c'
+  },
+  crimson: {
+    name: 'Crimson Red',
+    background: 'linear-gradient(135deg, #c62828 0%, #ef5350 100%)',
+    primary: '#c62828',
+    secondary: '#ef5350'
+  },
+  sunset: {
+    name: 'Sunset Orange',
+    background: 'linear-gradient(135deg, #ef6c00 0%, #ffb74d 100%)',
+    primary: '#ef6c00',
+    secondary: '#ffb74d'
+  },
+  cool: {
     name: 'Cool Gray Khaki',
-    primary: '#6B7C7E',
-    secondary: '#4F5E60',
-    accent: '#E5ECEC'
+    background: 'linear-gradient(135deg, #546e7a 0%, #90a4ae 100%)',
+    primary: '#546e7a',
+    secondary: '#90a4ae'
   },
-  'cascade-green': {
-    name: 'Cascade Green Silica',
-    primary: '#2C5C4F',
-    secondary: '#1E443A',
-    accent: '#E0EBE8'
+  crystal: {
+    name: 'Crystal White',
+    background: 'linear-gradient(135deg, #cfd8dc 0%, #eceff1 100%)',
+    primary: '#cfd8dc',
+    secondary: '#eceff1',
+    textColor: '#37474f'
   },
-  'horizon-blue': {
-    name: 'Horizon Blue Pearl',
-    primary: '#4A7C9E',
-    secondary: '#345A75',
-    accent: '#E5F0F7'
+  sapphire: {
+    name: 'Sapphire Blue',
+    background: 'linear-gradient(135deg, #1565c0 0%, #64b5f6 100%)',
+    primary: '#1565c0',
+    secondary: '#64b5f6'
   },
-  'pure-red': {
-    name: 'Pure Red',
-    primary: '#C72A2A',
-    secondary: '#9E2121',
-    accent: '#FFE5E5'
+  black: {
+    name: 'Crystal Black',
+    background: 'linear-gradient(135deg, #212121 0%, #616161 100%)',
+    primary: '#212121',
+    secondary: '#616161'
   }
 };
 
-// Get the current color scheme from storage
-async function getCurrentColorScheme() {
-  const data = await chrome.storage.sync.get(['colorScheme']);
-  return data.colorScheme || 'sapphire-blue';
-}
-
-// Set the color scheme
-async function setColorScheme(schemeId) {
-  await chrome.storage.sync.set({ colorScheme: schemeId });
-}
-
-// Apply color scheme to elements
-function applyColorScheme(schemeId) {
-  const scheme = COLOR_SCHEMES[schemeId];
-  if (!scheme) return;
-
+// Function to apply a color scheme
+function applyColorScheme(scheme) {
   const root = document.documentElement;
-  root.style.setProperty('--primary-color', scheme.primary);
-  root.style.setProperty('--secondary-color', scheme.secondary);
-  root.style.setProperty('--accent-color', scheme.accent);
-  root.style.setProperty('--text-color', scheme.dark ? '#333333' : '#FFFFFF');
-  root.style.setProperty('--text-color-secondary', scheme.dark ? '#666666' : 'rgba(255, 255, 255, 0.8)');
-}
-
-// Export for use in other scripts
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { COLOR_SCHEMES, getCurrentColorScheme, setColorScheme, applyColorScheme };
+  const schemeData = colorSchemes[scheme];
+  
+  if (schemeData) {
+    root.style.setProperty('--drawer-bg', schemeData.background);
+    root.style.setProperty('--primary-color', schemeData.primary);
+    root.style.setProperty('--secondary-color', schemeData.secondary);
+    
+    // Handle text color for light themes
+    if (schemeData.textColor) {
+      document.body.style.color = schemeData.textColor;
+      // Update all text elements
+      document.querySelectorAll('.drawer-header h3, .snippet-text, .filter-btn, #saved-prompts-dropdown, #color-scheme-selector').forEach(el => {
+        el.style.color = schemeData.textColor;
+      });
+    } else {
+      document.body.style.color = 'white';
+      // Reset text elements to white
+      document.querySelectorAll('.drawer-header h3, .snippet-text, .filter-btn, #saved-prompts-dropdown, #color-scheme-selector').forEach(el => {
+        el.style.color = 'white';
+      });
+    }
+  }
 }
