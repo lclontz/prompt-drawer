@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Drawer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="prompt-drawer-popup">
+    <!-- Header -->
+    <div class="drawer-header">
+      <h3>Prompt Drawer</h3>
+      <div class="header-controls">
+        <select id="color-scheme-selector" title="Change color scheme">
+          <option value="sapphire">Sapphire Blue</option>
+          <option value="original">Original Blue</option>
+          <option value="wilderness">Wilderness Green</option>
+          <option value="autumn">Autumn Blaze</option>
+          <option value="desert">Desert Khaki</option>
+          <option value="ocean">Ocean Blue</option>
+          <option value="magnetite">Magnetite Gray</option>
+          <option value="crimson">Crimson Red</option>
+          <option value="sunset">Sunset Orange</option>
+          <option value="cool">Cool Gray Khaki</option>
+          <option value="crystal">Crystal White</option>
+          <option value="black">Crystal Black</option>
+        </select>
+        <button id="settings-btn" class="settings-btn" title="Settings">⚙️</button>
+      </div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="category-filters-container">
+      <div class="category-filters" id="category-filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="role">Role</button>
+        <button class="filter-btn" data-category="mood">Mood</button>
+        <button class="filter-btn" data-category="brevity">Brevity</button>
+        <button class="filter-btn" data-category="format">Format</button>
+        <button class="filter-btn" data-category="meta">Meta</button>
+        <button class="filter-btn" data-category="custom">Custom</button>
+      </div>
+    </div>
+
+    <!-- Saved Prompts Dropdown -->
+    <div class="saved-prompts-container">
+      <select id="saved-prompts-dropdown" title="Load a saved prompt">
+        <option value="">-- Saved Prompts --</option>
+      </select>
+    </div>
+
+    <!-- Snippets List -->
+    <div class="snippets-container">
+      <div id="snippets-list" class="snippets-list">
+        <!-- Snippets will be inserted here -->
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Footer -->
+    <div class="drawer-footer">
+      <small>
+        by <a href="https://clontz.blog" target="_blank">Lee Clontz</a> | 
+        <a href="https://github.com/lclontz/prompt-drawer" target="_blank">GitHub</a>
+      </small>
+    </div>
+  </div>
+
+  <script src="color-schemes.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
